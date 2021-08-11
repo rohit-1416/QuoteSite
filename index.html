@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<!-- aos -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css">
+
+<!-- google fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cookie&family=Yellowtail&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id= "outer">
+    <div id="inner" class="mycolor">
+            <div class="mt-5 px-5">
+                <div class="text-center text-white " id="quotes"></div>
+            </div>
+            <div class="fixed-bottom p-5">
+                <div class="font-weight-bold text-white text-right"id="author"></div>
+                <button class="btn btn-primary btn-sm btn-block"  onclick="getNewQuotes();">New Quote</button>
+                <div class="mt-2"></div>
+                
+                
+            <div>
+               
+                  <a class="btn-sm btn-floating text-white" style="background-color: #00acee;"  role="button" id="tweet"><i class="fab fa-twitter" ></i></a>
+                  <a class="btn-sm btn-floating text-white" style="background-color: #4FCE5D;" role="button" data-action="share/whatsapp/share"  
+                  target="_blank"><i class="fab fa-whatsapp" id="whatsapp"></i></a>
+                </div>
+                
+            </div>
+    </div>
+</div>
+         
+    <script>
+        const tweet=document.getElementById('tweet');
+        const whatsapp =document.getElementById('whatsapp');
+
+        const quotes =document.getElementById('quotes');
+        const author =document.getElementById('author');
+         let realData="";
+         let quotesData="";
+
+         const whatsappNow =()=>{
+             whatsappPost = `whatsapp://send?text= ${quotesData.text}`
+             window.open(whatsappPost);
+         }
+
+         const tweetNow =()=>{
+             let tweetpost= `https://twitter.com/intent/tweet?text=${quotesData.text}`;
+             window.open(tweetpost);
+         }
+
+        const getNewQuotes = async()=>{
+            let randomno= Math.floor(Math.random()*1000);
+            // console.log(realData[randomno].text);
+            quotesData =realData[randomno];
+
+            if(quotesData.author==null){
+                quotesData.author= "Unknown";
+            }
+            quotes.innerHTML =`${ quotesData.text}`;
+            author.innerHTML =`<strong> - By ${ quotesData.author} </strong>` ;
+        };
+
+        const getQuotes =async()=>{
+        const api ="https://type.fit/api/quotes ";
+
+     try{
+            let data =await fetch(api);
+             realData = await data.json()
+             getNewQuotes();
+            // console.log(realData[0].text);
+            // console.log(realData[0].author);
+    }
+     catch(error){ }
+    };
+        getQuotes();
+
+        tweet.addEventListener('click',tweetNow)
+        whatsapp.addEventListener('click',whatsappNow)
+    </script>
+  
+  <!-- <div class="footer-copyright py-3 p-1 bg-dark text-white text-center">
+            
+    <p>Developed By : Rohit Kulkarni © 2021.</p>
+    <br>
+    </div> -->
+    <footer class="page-footer font-small bg-dark fixed-bottom">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">Developed By :<a href="https://rohitk.netlify.app" class="text-info">Rohit Kulkarni</a>  © 2021.
+          <a href="https://rohitk.netlify.app"></a>
+          </div>
+          <div class="text-center ">
+          <a class=" btn-sm btn-floating text-white" style="background-color: #0082ca" href="https://www.linkedin.com/in/rohit-kulkarni-1416-indian" role="button"><i class="fab fa-linkedin-in"> </i> </a>
+          <a class="btn-sm btn-floating text-white " style="background-color: #333333" href="https://github.com/rohit-1416" role="button"><i class="fab fa-github"></i></a>
+        </div>
+        <!-- Copyright -->
+      
+      </footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+#inner{
+  /* display: inline-block;
+   */
+   width: 80%;
+   height: 40%;
+   top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    position: absolute;
+    font-family: 'Cookie', cursive;
+    font-family: 'Yellowtail', cursive;
+    font-size:large;
+}
+#outer{
+ 
+  text-align: center;
+  box-shadow: black;
+  
+}
+  
+
+  @media only screen and (max-width: 770px) {
+     .mycolor{
+      background-image: url('imgs/inner.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      box-shadow: black 5px;
+      border-radius: 16px;
+      }
+    }
+  @media only screen and (min-width:771px){
+    .mycolor{
+      background-image: linear-gradient( to bottom right,cyan,red);
+    }
+  }
+
+  body {
+    background: -webkit-gradient(linear, right top, right bottom, from(#9acbed), to(#edd39a)) fixed;
+  }
+  
