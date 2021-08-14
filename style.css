@@ -3,14 +3,13 @@
   /* display: inline-block;
    */
    width: 80%;
-   height: 55%;
+   height: 53%;
    top: 50%;
     left: 50%;
     transform: translate(-50% , -50%);
     position: absolute;
-    font-family: 'Cookie', cursive;
-    font-family: 'Yellowtail', cursive;
-    font-size:large;
+    font-family: 'Playfair Display', serif;
+    font-size: large;
 }
 #outer{
  
@@ -28,15 +27,16 @@
       background-size: cover;
       box-shadow: black 5px;
       border-radius: 16px;
+      
       }
     }
-  @media only screen and (min-width:771px){
+  @media only screen and (min-width:770px){
     .mycolor{
-      background-image: linear-gradient( to bottom right,cyan,red);
+      background-image: linear-gradient( to bottom right,rgb(201, 45, 45),rgb(22, 209, 178));
     }
   }
 
   body {
-    background: -webkit-gradient(linear, right top, right bottom, from(#9acbed), to(#edd39a)) fixed;
+    background: -webkit-gradient(linear, right top, right bottom, from(#5bade7), to(#e67553)) fixed;
   }
   
