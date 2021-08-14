@@ -44,14 +44,15 @@
                 
             <div>
                 
-                <span class="badge badge-secondary ">Share On: <i class="fas fa-share-square"></i></span>
-                  <a class="btn btn-sm btn-floating text-white rounded-pill" style="background-color: #00acee;"  role="button" id="tweet"><i class="fab fa-twitter fa-2x" ></i></a>
-                  <a class="btn btn-sm btn-floating text-white rounded-pill" style="background-color: #4FCE5D;" role="button" data-action="share/whatsapp/share"  
+                <div><span class="badge badge-secondary ">Share On: <i class="fas fa-share-square"></i></span></div>
+                  <a class="btn btn-sm btn-floating text-white rounded-pill" data-toggle="tooltip" data-placement="top" title="Share On Tweeter " style="background-color: #00acee;"  role="button" id="tweet"><i class="fab fa-twitter fa-2x" ></i></a>
+                  <a class="btn btn-sm btn-floating text-white rounded-pill" data-toggle="tooltip" data-placement="top" title="Share On WhatsApp"style="background-color: #4FCE5D;" role="button" data-action="share/whatsapp/share"  
                   target="_blank"><i class="fab fa-whatsapp fa-2x" id="whatsapp"></i></a>
                 </div>
                 
             </div>
     </div>
+    
 </div>
          
     <script>
@@ -69,47 +70,26 @@
          let quotesData="";
          let whatsappPost = "";
          let tweetpost= "";
-        //  if(hours >= 3 && hours<=11 ){
-        //     //  console.log("good Morning");
-        //    whatsappPost= `whatsapp://send?text=*Good Morning😍 ${quotesData.text} ❣️*`;
-        //    tweetpost =`https://twitter.com/intent/tweet?text= Good Morning😍 ${quotesData.text} ❣️`;
-        //  }
-        //  else if(hours<=15 && hours>=12)
-        //  {
-        //     whatsappPost= `whatsapp://send?text=*Good Afternoon🤩 ${quotesData.text} 💫*`;
-        //     tweetpost =`https://twitter.com/intent/tweet?text= Good Afternoon🤩 ${quotesData.text} 💫`;
-        //  }
-        //  else if(hours>=16 && hours<=19){
-        //     whatsappPost= `whatsapp://send?text=*Good Evening💞 ${quotesData.text} ✌️*`;
-        //     tweetpost =`https://twitter.com/intent/tweet?text= Good Evening 💞${quotesData.text} ✌️`;
-        //  }
-        //  else{
-        //     whatsappPost= `whatsapp://send?text=*Good Night🤗 ${quotesData.text} 😴*`;
-        //     tweetpost =`https://twitter.com/intent/tweet?text= Good Night 🤗 ${quotesData.text} 😴`;
-        //  }
-         
+        
          console.log(whatsappPost);
          console.log(tweetpost);
          
          const whatsappNow =()=>{
 
             if(hours >= 3 && hours<=11 ){
-            //  console.log("good Morning");
-           whatsappPost= `whatsapp://send?text=*Good Morning😍 ${quotesData.text} ❣️*`;
-        //    tweetpost =`https://twitter.com/intent/tweet?text= Good Morning😍 ${quotesData.text} ❣️`;
+        
+           whatsappPost= `whatsapp://send?text=*Good Morning😍 %0a ${quotesData.text} ❣️%0a* -${quotesData.author}`;
          }
          else if(hours<=15 && hours>=12)
          {
-            whatsappPost= `whatsapp://send?text=*Good Afternoon🤩 ${quotesData.text} 💫*`;
-            // tweetpost =`https://twitter.com/intent/tweet?text= Good Afternoon🤩 ${quotesData.text} 💫`;
+            whatsappPost= `whatsapp://send?text=*Good Afternoon🤩%0a ${quotesData.text} 💫 %0a* -${quotesData.author}`;
+
          }
          else if(hours>=16 && hours<=19){
-            whatsappPost= `whatsapp://send?text=*Good Evening💞 ${quotesData.text} ✌️*`;
-            // tweetpost =`https://twitter.com/intent/tweet?text= Good Evening 💞${quotesData.text} ✌️`;
+            whatsappPost= `whatsapp://send?text=*Good Evening💞%0a ${quotesData.text} ✌️ %0a* -${quotesData.author}`;
          }
          else{
-            whatsappPost= `whatsapp://send?text=*Good Night🤗 ${quotesData.text} 😴*`;
-            // tweetpost =`https://twitter.com/intent/tweet?text= Good Night 🤗 ${quotesData.text} 😴`;
+            whatsappPost= `whatsapp://send?text=*Good Night🤗 %0a ${quotesData.text} 😴 %0a* -${quotesData.author}`;
          }
 
 
@@ -119,21 +99,19 @@
          const tweetNow =()=>{
 
             if(hours >= 3 && hours<=11 ){
-            //  console.log("good Morning");
-        //    whatsappPost= `whatsapp://send?text=*Good Morning😍 ${quotesData.text} ❣️*`;
+    
            tweetpost =`https://twitter.com/intent/tweet?text= Good Morning😍 ${quotesData.text} ❣️`;
          }
          else if(hours<=15 && hours>=12)
          {
-            // whatsappPost= `whatsapp://send?text=*Good Afternoon🤩 ${quotesData.text} 💫*`;
+        
             tweetpost =`https://twitter.com/intent/tweet?text= Good Afternoon🤩 ${quotesData.text} 💫`;
          }
          else if(hours>=16 && hours<=19){
-            // whatsappPost= `whatsapp://send?text=*Good Evening💞 ${quotesData.text} ✌️*`;
+
             tweetpost =`https://twitter.com/intent/tweet?text= Good Evening 💞${quotesData.text} ✌️`;
          }
          else{
-            // whatsappPost= `whatsapp://send?text=*Good Night🤗 ${quotesData.text} 😴*`;
             tweetpost =`https://twitter.com/intent/tweet?text= Good Night 🤗 ${quotesData.text} 😴`;
          }
              
