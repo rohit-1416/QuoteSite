@@ -78,18 +78,18 @@
 
             if(hours >= 3 && hours<=11 ){
         
-           whatsappPost= `whatsapp://send?text=*Good Morning😍* %0a *${quotesData.text} ❣️%0a* -${quotesData.author}`;
+           whatsappPost= `whatsapp://send?text=*Good Morning😍* %0a *${quotesData.text} ❣️*%0a -By ${quotesData.author}`;
          }
          else if(hours<=15 && hours>=12)
          {
-            whatsappPost= `whatsapp://send?text=*Good Afternoon🤩* %0a *${quotesData.text} 💫 %0a* -${quotesData.author}`;
+            whatsappPost= `whatsapp://send?text=*Good Afternoon🤩* %0a *${quotesData.text} 💫* %0a -By ${quotesData.author}`;
 
          }
          else if(hours>=16 && hours<=19){
-            whatsappPost= `whatsapp://send?text=*Good Evening💞* %0a *${quotesData.text} ✌️ %0a* -${quotesData.author}`;
+            whatsappPost= `whatsapp://send?text=*Good Evening💞* %0a *${quotesData.text} ✌️* %0a -By ${quotesData.author}`;
          }
          else{
-            whatsappPost= `whatsapp://send?text=*Good Night🤗* %0a *${quotesData.text} 😴 %0a* -${quotesData.author}`;
+            whatsappPost= `whatsapp://send?text=*Good Night🤗* %0a *${quotesData.text} 😴* %0a -By ${quotesData.author}`;
          }
 
 
